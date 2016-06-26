@@ -1,0 +1,11 @@
+require 'fullwidth'
+
+def parse(line)
+  result = line.scan(/\{{2}.*\}{2}/)
+  words = []
+  result.each{ line.sub(word, word.chomp("{{").chomp("}}").to_fullwidth) }
+  puts(line)
+end
+
+parse("This meme is {{aesthetic}}")
+  
