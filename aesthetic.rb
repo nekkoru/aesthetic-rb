@@ -15,5 +15,5 @@ def parse(line)
   return line
 end
 
-parse("This meme is {{aesthetic}}")
+
   
