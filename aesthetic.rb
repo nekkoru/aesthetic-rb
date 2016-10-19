@@ -5,7 +5,7 @@
 #code originally by John Hawthorn
 #https://github.com/jhawthorn/fullwidth
 
-class String
+String.class_eval do
   def to_fullwidth
     tr(' !-~', "\u3000" + (0xFF01...0xFF5f).to_a.pack('U*'))
   end
