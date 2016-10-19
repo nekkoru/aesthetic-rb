@@ -21,7 +21,8 @@ def weechat_init
   return Weechat::WEECHAT_RC_OK
 end
 
-def parse(line)
+def parse(data, modifier, modifier_data, line)
+  return line if Weechat.string_is_command_char(line) == 1
   result = line.scan(/\{{2}.*?\}{2}/)
   result.each { |word| line.sub!(word, word.sub(/^{{(.+)}}$/, '\1').to_fullwidth) }
   return line
