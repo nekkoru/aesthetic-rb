@@ -1,4 +1,16 @@
-require 'fullwidth'
+#aesthetics-rb
+#2016 Mathilda Hartnell
+
+#String class extension
+#code originally by John Hawthorn
+#https://github.com/jhawthorn/fullwidth
+
+class String
+  def to_fullwidth
+    tr(' !-~', "\u3000" + (0xFF01...0xFF5f).to_a.pack('U*'))
+  end
+end
+
 
 def weechat_init
   Weechat.register('aesthetic', 'nekkoru', '0.0.1', 'none',
@@ -15,5 +27,3 @@ def parse(line)
   return line
 end
 
-
-  
